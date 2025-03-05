@@ -91,5 +91,16 @@ class TriviaViewModel {
         
     }
     
+    // Check and save response status for current question
+    func saveAndCheck(guess: String) {
+        
+        if guess == questionToPresent?.correctAnswer {
+            presentedQuestions[currentQuestionNumber].correctAnswerProvided = true
+        } else {
+            presentedQuestions[currentQuestionNumber].correctAnswerProvided = false
+        }
+
+    }
+    
     
 }

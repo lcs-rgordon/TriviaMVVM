@@ -14,5 +14,6 @@ struct PresentedQuestion: Identifiable {
     let question: String
     let correctAnswer: String
     let possibleAnswers: [String]
+    var correctAnswerProvided: Bool?    // nil value means we don't know yet (no response given)
     
 }

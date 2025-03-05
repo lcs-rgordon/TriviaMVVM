@@ -32,16 +32,12 @@ struct TriviaView: View {
                 Spacer()
                 
                 // Create four buttons out of the possible answers
-                ForEach(questionToPresent.possibleAnswers, id: \.self) { answer in
+                ForEach(questionToPresent.possibleAnswers, id: \.self) { currentAnswer in
                     
                     Button {
-                        if answer == questionToPresent.correctAnswer {
-                            feedback = "Correct!"
-                        } else {
-                            feedback = "Try again"
-                        }
+                        viewModel.saveAndCheck(guess: currentAnswer)
                     } label: {
-                        Text(answer)
+                        Text(currentAnswer)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.bottom, 20)
@@ -49,10 +45,14 @@ struct TriviaView: View {
                 }
                 
                 Spacer()
-                
-                Text(feedback)
-                    .font(.title)
-                    .frame(height: 100)
+
+                VStack {
+                    if let correctAnswerProvided = questionToPresent.correctAnswerProvided {
+                        Text(correctAnswerProvided ? "Correct!" : "Not quite 😕")
+                            .font(.title)
+                    }
+                }
+                .frame(height: 100)
 
                 
             } else {
