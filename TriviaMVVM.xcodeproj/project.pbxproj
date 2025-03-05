@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		81A350CF2D77F2EB005B5527 /* TriviaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A350CC2D77F2EB005B5527 /* TriviaView.swift */; };
+		81A350D02D77F2EB005B5527 /* TriviaMVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A350CD2D77F2EB005B5527 /* TriviaMVVMApp.swift */; };
+		81A350D12D77F2EB005B5527 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A350C92D77F2EB005B5527 /* Preview Assets.xcassets */; };
+		81A350D22D77F2EB005B5527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A350CB2D77F2EB005B5527 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		81A350B82D77F2BF005B5527 /* TriviaMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriviaMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A350C92D77F2EB005B5527 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		81A350CB2D77F2EB005B5527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81A350CC2D77F2EB005B5527 /* TriviaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaView.swift; sourceTree = "<group>"; };
+		81A350CD2D77F2EB005B5527 /* TriviaMVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaMVVMApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		81A350BA2D77F2BF005B5527 /* TriviaMVVM */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TriviaMVVM;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		81A350B52D77F2BF005B5527 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		81A350AF2D77F2BF005B5527 = {
 			isa = PBXGroup;
 			children = (
-				81A350BA2D77F2BF005B5527 /* TriviaMVVM */,
+				81A350CE2D77F2EB005B5527 /* TriviaMVVM */,
 				81A350B92D77F2BF005B5527 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,49 @@
 				81A350B82D77F2BF005B5527 /* TriviaMVVM.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		81A350CA2D77F2EB005B5527 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				81A350C92D77F2EB005B5527 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		81A350CE2D77F2EB005B5527 /* TriviaMVVM */ = {
+			isa = PBXGroup;
+			children = (
+				81A350CD2D77F2EB005B5527 /* TriviaMVVMApp.swift */,
+				81A350D32D77F2EF005B5527 /* Model */,
+				81A350D42D77F2F3005B5527 /* ViewModels */,
+				81A350D52D77F2FA005B5527 /* Views */,
+				81A350CA2D77F2EB005B5527 /* Preview Content */,
+				81A350CB2D77F2EB005B5527 /* Assets.xcassets */,
+			);
+			path = TriviaMVVM;
+			sourceTree = "<group>";
+		};
+		81A350D32D77F2EF005B5527 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81A350D42D77F2F3005B5527 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		81A350D52D77F2FA005B5527 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81A350CC2D77F2EB005B5527 /* TriviaView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +105,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				81A350BA2D77F2BF005B5527 /* TriviaMVVM */,
 			);
 			name = TriviaMVVM;
 			packageProductDependencies = (
@@ -109,6 +152,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A350D12D77F2EB005B5527 /* Preview Assets.xcassets in Resources */,
+				81A350D22D77F2EB005B5527 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A350CF2D77F2EB005B5527 /* TriviaView.swift in Sources */,
+				81A350D02D77F2EB005B5527 /* TriviaMVVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
