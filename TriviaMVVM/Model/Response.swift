@@ -30,6 +30,26 @@ struct Question: Codable {
     let correctAnswer: String
     let incorrectAnswers: [String]
     
+    // MARK: Computed properties
+    
+    // For convenience in the view, return a randomized
+    // list of all the answers
+    var allAnswers: [String] {
+        
+        // Create an empty array
+        var answers: [String] = []
+        
+        // Add the correct answer
+        answers.append(correctAnswer)
+        
+        // Add the incorrect answers
+        answers.append(contentsOf: incorrectAnswers)
+        
+        // Return an array with the order of answers
+        // shuffled (mixed up)
+        return answers.shuffled()
+    }
+    
     // MARK: Enumerations
     
     // Provide decoding hints to Swift compiler
