@@ -18,30 +18,78 @@ class TriviaViewModel {
     // Which question we are currently showing from the current response
     private var currentQuestionNumber: Int
     
+    // Holds a list of questions that have been presented
+    private var presentedQuestions: [PresentedQuestion] = []
+    
     // MARK: Computed properties
-    var currentQuestion: Question? {
+    
+    // Return the most recent question
+    var questionToPresent: PresentedQuestion? {
         
-        // Assuming a response has been downloaded from the endpoint, return
-        // the current question to show
-        if let response = currentResponse {
-            
-            return response.results[currentQuestionNumber]
-            
-        } else {
-            
+        if presentedQuestions.isEmpty {
             return nil
-            
+        } else {
+            // We have checked to ensure the array is not
+            // empty, so it's safe to force unwrap here
+            return presentedQuestions.last!
         }
         
     }
-    
+        
     // MARK: Initalizer(s)
     init(
         currentResponse: Response? = nil,
-        currentQuestionNumber: Int = 0
+        currentQuestionNumber: Int = -1
     ) {
         self.currentResponse = currentResponse
         self.currentQuestionNumber = currentQuestionNumber
+        
+        // Get a question from the response
+        getNextQuestion()
+        
     }
+    
+    // MARK: Function(s)
+    
+    // Get another question from the response
+    func getNextQuestion() {
+        
+        if let currentResponse = self.currentResponse {
+
+            // Advance to next question in the response
+            currentQuestionNumber += 1
+            
+            // Get the current question from the response
+            if currentQuestionNumber > currentResponse.results.count - 1 {
+                
+                // Quit for now...
+                return
+            }
+            
+            // Get current question from the response
+            let currentQuestion = currentResponse.results[currentQuestionNumber]
+            
+            // Make a jumbled array of possible answers to the current question
+            var possibleAnswers: [String] = []
+            possibleAnswers.append(currentQuestion.correctAnswer)
+            possibleAnswers.append(contentsOf: currentQuestion.incorrectAnswers)
+            possibleAnswers.shuffle()
+            
+            // Make a new question to present
+            let nextQuestion = PresentedQuestion(
+                category: currentQuestion.category,
+                question: currentQuestion.question,
+                correctAnswer: currentQuestion.correctAnswer,
+                possibleAnswers: possibleAnswers
+            )
+            
+            // Add to the array of presented questions
+            presentedQuestions.append(nextQuestion)
+
+        }
+        
+        
+    }
+    
     
 }

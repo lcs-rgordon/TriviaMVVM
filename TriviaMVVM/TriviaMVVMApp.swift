@@ -11,7 +11,9 @@ import SwiftUI
 struct TriviaMVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            TriviaView()
+            NavigationStack {
+                TriviaView()
+            }
         }
     }
 }
